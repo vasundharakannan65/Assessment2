@@ -1,5 +1,5 @@
 ﻿using CustomerFeedBackFormWebAPI.Interfaces;
-using CustomerFeedBackFormWebAPI.Models;
+using CustomerFeedBackFormWebAPI.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,7 +20,7 @@ namespace CustomerFeedBackFormWebAPI.Controllers
             this._feedbackRepository = feedbackRepository;
         }
 
-        //Feedback
+        //Create Feedback
         [HttpPost]
         public void Create(CustomerForm customerForm)
         {
@@ -32,7 +32,23 @@ namespace CustomerFeedBackFormWebAPI.Controllers
             {
                 throw new Exception(e.Message);
             }
+        } 
+
+        //Get Feedback Info 
+        [HttpGet]
+        public async Task<IActionResult> GetFeedbackInfo()
+        {
+            try
+            {
+                var result =await _feedbackRepository.GetFeedbackInfo();
+                return Ok(result);
+            } 
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
+
 
     }
 }

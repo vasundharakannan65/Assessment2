@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CustomerFeedBackFormWebAPI.Models
+namespace CustomerFeedBackFormWebAPI.ViewModels
 {
     public class CustomerForm
     {
@@ -38,6 +38,8 @@ namespace CustomerFeedBackFormWebAPI.Models
         public string ReasonForUnsatisfactory { get; set; }
 
         public string FileUpload { get; set; }
+
+        
 
     }
 }

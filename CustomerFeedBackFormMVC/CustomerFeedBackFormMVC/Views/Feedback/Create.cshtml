@@ -15,7 +15,7 @@
                     <h3 class="mb-0 text-center">Customer Satisfactory Feedback</h3>
                 </div>
                 <div class="card-body">
-                    <form asp-action="Create" method="post" class="myform">
+                    <form asp-action="Create" method="post" class="myform" id="myForm">
 
                         <h4 class="mb-0">Product Information</h4>
                         <hr />
@@ -24,16 +24,16 @@
                             <div class="form-group col-md-6">
                                 <label class="col-form-label form-control-label required" asp-for="CategoryId">Category</label>
                                 <select asp-for="CategoryId" asp-items="@ViewBag.category" class="form-control" id="CategoryId">
-                                    <option selected="">--Select--</option>
+                                    <option selected="" value="Select">--Select--</option>
                                 </select>
-                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                @*<span asp-validation-for="CategoryId" class="text-danger"></span>*@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="col-form-label form-control-label required" asp-for="ProductId">Product</label>
                                 <select asp-for="ProductId" asp-items="@ViewBag.products" class="form-control" id="ProductId">
-                                    <option selected="">--Select--</option>
+                                    <option selected="" value="Select">--Select--</option>
                                 </select>
-                                <span asp-validation-for="ProductId" class="text-danger"></span>
+                                @*<span asp-validation-for="ProductId" class="text-danger"></span>*@
                             </div>
                         </div>
 
@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input">
-                                    <label class="form-check-label">Mobile</label>
+                                    <label class="form-check-label" for="check3">Mobile</label>
                                 </div>
                             </div>
                         </div>
@@ -66,22 +66,22 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="radio-inline">
-                                    <input type="radio" asp-for="RatingId" id="RatingId" value="1"> Very Satisfied
+                                    <input type="radio" asp-for="RatingId" name="RatingId" id="RatingId" value="1"> Very Satisfied
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" asp-for="RatingId" id="RatingId" value="2"> Satisfied
+                                    <input type="radio" asp-for="RatingId" name="RatingId" id="RatingId" value="2"> Satisfied
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" asp-for="RatingId" id="RatingId" value="3"> Neutral
+                                    <input type="radio" asp-for="RatingId" name="RatingId" id="RatingId" value="3"> Neutral
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" asp-for="RatingId" id="RatingId" value="4"> Unsatisfied
+                                    <input type="radio" asp-for="RatingId" name="RatingId" id="RatingId" value="4"> Unsatisfied
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" asp-for="RatingId" id="RatingId" value="5"> Very Unsatisfied
+                                    <input type="radio" asp-for="RatingId" name="RatingId" id="RatingId" value="5"> Very Unsatisfied
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" asp-for="RatingId" id="RatingId" value="6"> N/A
+                                    <input type="radio" asp-for="RatingId" name="RatingId" id="RatingId" value="6"> N/A
                                 </label>
                             </div>
                         </div>
@@ -92,7 +92,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <textarea class="form-control" asp-for="Information" placeholder="" rows="2" id="Information"></textarea>
-                                <span asp-validation-for="Information" class="text-danger"></span>
+                                @*<span asp-validation-for="Information" class="text-danger"></span>*@
                             </div>
                         </div>
 
@@ -103,17 +103,17 @@
                             <div class="form-group col-md-2">
                                 <label class="col-form-label form-control-label required" asp-for="Title">Title</label>
                                 <input type="text" class="form-control" asp-for="Title" placeholder="" id="Title">
-                                <span asp-validation-for="Title" class="text-danger"></span>
+                                @*<span asp-validation-for="Title" class="text-danger"></span>*@
                             </div>
                             <div class="form-group col-md-8">
                                 <label class="col-form-label form-control-label required" asp-for="Name">Name</label>
                                 <input type="text" class="form-control" asp-for="Name" placeholder="" id="Name">
-                                <span asp-validation-for="Name" class="text-danger"></span>
+                                @*<span asp-validation-for="Name" class="text-danger"></span>*@
                             </div>
                             <div class="form-group col-md-2">
                                 <label class="col-form-label form-control-label required" asp-for="Initials">Initial</label>
                                 <input type="text" class="form-control" asp-for="Initials" placeholder="" id="Initials">
-                                <span asp-validation-for="Initials" class="text-danger"></span>
+                                @*<span asp-validation-for="Initials" class="text-danger"></span>*@
                             </div>
                         </div>
 
@@ -123,7 +123,7 @@
                             </div>
                             <div class="form-group col-md-10">
                                 <input type="email" class="form-control form-control" asp-for="EmailId" placeholder="" id="EmailId">
-                                <span asp-validation-for="EmailId" class="text-danger"></span>
+                                @*<span asp-validation-for="EmailId" class="text-danger"></span>*@
                             </div>
                         </div>
 
@@ -131,12 +131,12 @@
                             <div class="form-group col-md-6">
                                 <label asp-for="StreetAddress1" class="col-form-label form-control-label required">Street Address1</label>
                                 <textarea class="form-control" asp-for="StreetAddress1" placeholder="" rows="2" id="StreetAddress1"></textarea>
-                                <span asp-validation-for="StreetAddress1" class="text-danger"></span>
+                                @*<span asp-validation-for="StreetAddress1" class="text-danger"></span>*@
                             </div>
                             <div class="form-group col-md-6">
                                 <label asp-for="StreetAddress2" class="col-form-label form-control-label">Street Address2</label>
                                 <textarea class="form-control" asp-for="StreetAddress2" placeholder="" rows="2" id="StreetAddress2"></textarea>
-                                <span asp-validation-for="StreetAddress2" class="text-danger"></span>
+                                @*<span asp-validation-for="StreetAddress2" class="text-danger"></span>*@
                             </div>
                         </div>
 
@@ -144,25 +144,25 @@
                             <div class="form-group col-md-6">
                                 <label asp-for="City" class="col-form-label form-control-label required">City</label>
                                 <input type="text" class="form-control-file form-control" asp-for="City" id="City">
-                                <span asp-validation-for="City" class="text-danger"></span>
+                                @*<span asp-validation-for="City" class="text-danger"></span>*@
                             </div>
                             <div class="form-group col-md-6">
                                 <label asp-for="Region" class="col-form-label form-control-label required">Region</label>
                                 <input type="text" class="form-control-file form-control" asp-for="Region" id="Region">
-                                <span asp-validation-for="Region" class="text-danger"></span>
+                                @*<span asp-validation-for="Region" class="text-danger"></span>*@
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label asp-for="ZipCode" class="col-form-label form-control-label required">ZipCode/Postal</label>
-                                <input type="number" class="form-control-file form-control" min="0" asp-for="ZipCode" id="ZipCode">
-                                <span asp-validation-for="ZipCode" class="text-danger"></span>
+                                <input type="number" class="form-control-file form-control" min="6" asp-for="ZipCode" id="ZipCode">
+                                @*<span asp-validation-for="ZipCode" class="text-danger"></span>*@
                             </div>
                             <div class="form-group col-md-6">
                                 <label asp-for="Country" class="col-form-label form-control-label required">Country</label>
                                 <input type="text" class="form-control-file form-control" asp-for="Country" id="Country">
-                                <span asp-validation-for="Country" class="text-danger"></span>
+                                @*<span asp-validation-for="Country" class="text-danger"></span>*@
                             </div>
                         </div>
 
@@ -175,7 +175,7 @@
                                 <textarea class="form-control" asp-for="ReasonForUnsatisfactory" placeholder="" rows="2" id="ReasonForUnsatisfactory"></textarea>
                                 <span asp-validation-for="ReasonForUnsatisfactory" class="text-danger"></span>
                             </div>
-                        </div> 
+                        </div>
 
                         <div class="form-group">
                             <label asp-for="FileUpload" class="col-form-label form-control-label required">File Upload</label>
@@ -187,8 +187,9 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
-                                <input class="btn btn-secondary" type="reset" value="Cancel">
-                                <input class="btn btn-primary" type="submit" value="Save Changes" onclick="CreateFeedback()">
+                                <button class="btn btn-secondary" type="reset" onclick="ResetForm()">Reset</button>
+                                <button class="btn btn-primary" type="submit" onclick="CreateFeedback()">Submit</button>
+                                <button class="btn btn-primary" type="submit" onclick="GetFeedbackInfo()">Send Copy</button>
                             </div>
                         </div>
                     </form>
@@ -205,70 +206,139 @@
     }
 }
 
+<style>
+    .error {
+        color: red;
+        margin-left: 5px;
+    }
+
+    label.error {
+        display: inline;
+    }
+</style>
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
         crossorigin="anonymous"></script>
 
-<script>
+<script type="text/javascript">
+
     $(document).ready(function () {
 
-        var RatingId = $('#RatingId').val();
 
-        if ((RatingId == 4) || (RatingId == 5)) {
-            $('#unSatisfactoryPart').show();
-        } else {
-            $('#unSatisfactoryPart').hide();
-        }
+        //Enabling or Disabling Unsatisfactory div part
+        $('div#unSatisfactoryPart').hide();
 
-        $('#unSatisfactoryPart').on('keyup change', function (c) {
+        $("input[name=RatingId]").on("click", function () {
+            var selectedValue = $("input[name=RatingId]:checked").val();
 
-            //initially hide all
-            if (this.value.length < 3) {
-                $('#three, #two, #one').hide();
+            //console.log(selectedValue);
+
+            if ((selectedValue == 4) || (selectedValue == 5)) {
+                $('div#unSatisfactoryPart').show();
             }
             else {
-
-                switch (parseInt(this.value)) {
-
-                    case 123: case 124: $('#one').show(); break;
-                    case 234: case 235: $('#two').show(); break;
-                    case 345: case 346: $('#three').show(); break;
-                }
-
+                $('#unSatisfactoryPart').hide();
             }
+
+
         });
 
-        //$('#customerForm').submit(function (e) {
-        //    e.preventDefault();
-        //    var Name = $('#Name').val();
-        //    var EmailId = $('#EmailId').val();
-        //    var Address = $('#Address').val();
-        //    var PhoneNo = $('#PhoneNo').val();
 
-        //    $(".error").remove();
+        //Jquery validation
+        $('#myForm').submit(function (e) {
 
-        //    if (Name.length < 1) {
-        //        $('#Name').after('<span class="error">This field is required</span>');
-        //    }
-        //    if (Address.length < 1) {
-        //        $('#Address').after('<span class="error">This field is required</span>');
-        //    }
-        //    if (EmailId.length < 1) {
-        //        $('#EmailId').after('<span class="error">This field is required</span>');
-        //    }
-        //    else {
-        //        var regEx = /\S+\S+\.\S+/
-        //        var validEmail = regEx.test(EmailId);
-        //        if (!validEmail) {
-        //            $('#EmailId').after('<span class="error">Enter a valid email</span>');
-        //        }
-        //    }
-        //    if (PhoneNo.length < 10) {
-        //        $('#PhoneNo').after('<span class="error">Phone Number must be at least 10 characters long</span>');
-        //    }
-        //});
+            //Prevent Form from submitting
+            e.preventDefault();
+
+            var CategoryId = $('#CategoryId').val();
+            var ProductId = $('#ProductId').val();
+            var RatingId = $('#RatingId').val();
+            var Information = $('#Information').val();
+            var Title = $('#Title').val();
+            var Name = $('#Name').val();
+            var Initials = $('#Initials').val();
+            var EmailId = $('#EmailId').val();
+            var StreetAddress1 = $('#StreetAddress1').val();
+            var StreetAddress2 = $('#StreetAddress2').val();
+            var City = $('#City').val();
+            var Region = $('#Region').val();
+            var ZipCode = $('#ZipCode').val();
+            var Country = $('#Country').val();
+            var ReasonForUnsatisfactory = $('ReasonForUnsatisfactory').val();
+            var FileUpload = $('FileUpload').val();
+
+            console.log(CategoryId, ProductId, RatingId, Information, Title, Name, Initials, EmailId, StreetAddress1, StreetAddress2, City, Region, ZipCode, Country, ReasonForUnsatisfactory, FileUpload);
+
+            $(".error").remove();
+
+            if (CategoryId == "Select") {
+                $('#CategoryId').after('<span class="error">This field is required</span>');
+            }
+            if (ProductId == "Select") {
+                $('#ProductId').after('<span class="error">This field is required</span>');
+            }
+            if (RatingId == 0) {
+                $('#RatingId').after('<span class="error">This field is required</span>');
+            }
+            if (Information.length < 1) {
+                $('#Information').after('<span class="error">This field is required</span>');
+            }
+            if (Title.length < 1) {
+                $('#Title').after('<span class="error">This field is required</span>');
+            }
+            if (Initials.length < 1) {
+                $('#Initials').after('<span class="error">This field is required</span>');
+            }
+            if (Name.length < 1) {
+                $('#Name').after('<span class="error">This field is required</span>');
+            }
+            if (EmailId.length < 1) {
+                $('#EmailId').after('<span class="error">This field is required</span>');
+            }
+            else {
+                var regEx = /\S+\S+\.\S+/
+                var validEmail = regEx.test(EmailId);
+                if (!validEmail) {
+                    $('#EmailId').after('<span class="error">Enter a valid email</span>');
+                }
+            }
+            if (StreetAddress1.length < 1) {
+                $('#StreetAddress1').after('<span class="error">This field is required</span>');
+            }
+            if (StreetAddress2.length < 1) {
+                $('#StreetAddress2').after('<span class="error">This field is required</span>');
+            }
+            if (City.length < 1) {
+                $('#City').after('<span class="error">This field is required</span>');
+            }
+            if (Region.length < 1) {
+                $('#Region').after('<span class="error">This field is required</span>');
+            }
+            if (ZipCode.length < 6) {
+                $('#ZipCode').after('<span class="error">ZipCode must be length of 6 digits</span>');
+            }
+            if (Country.length < 1) {
+                $('#Country').after('<span class="error">This field is required</span>');
+            }
+            //if (ReasonForUnsatisfactory.length < 1) {
+            //    $('#ReasonForUnsatisfactory').after('<span class="error">This field is required</span>');
+            //}
+            //if (!FileUpload) {
+            //    $('#FileUpload').after('<span class="error">This field is required</span>');
+            //}
+
+        });
+
 
     });
 
+    //Resetting the Form
+    function ResetForm() {
+        document.getElementById("#myForm").reset();
+    }
+
+    //Feedback function
     function CreateFeedback() {
 
         class Feedback {
@@ -295,10 +365,10 @@
         }
 
         var feedbackDetails = new Feedback($("#CategoryId").val(), $("#ProductId").val(), $("#RatingId").val(), $("#Information").val(),
-            $("#Title").val(),$("#Name").val(), $("#Initials").val(), $("#EmailId").val(), $("#StreetAddress1").val(), $("#StreetAddress2").val(),
+            $("#Title").val(), $("#Name").val(), $("#Initials").val(), $("#EmailId").val(), $("#StreetAddress1").val(), $("#StreetAddress2").val(),
             $("#City").val(), $("#Region").val(), $("#ZipCode").val(), $("#Country").val(), $("#ReasonForUnsatisfactory").val(), $("#FileUpload").val());
 
-        console.log(feedbackDetails);
+        //console.log(feedbackDetails);
 
         $.ajax({
             type: "POST",
@@ -307,12 +377,45 @@
             dataType: "json",
             contentType: "application/json",
             success: function () {
-                alert('Successfully Created!');
+                console.log("Submitted");
+                GetFeedbackInfo();
             },
             error: function (xhr) {
                 alert(xhr.responseText);
             }
         });
 
+
     }
+
+    //Getting FedbackForm Info
+    function GetFeedbackInfo() {
+        $.ajax({
+            url: 'https://localhost:44393/api/Feedback',
+            type: "GET",
+            dataType: "json",
+            success: function (response) {
+                sendMail(response);
+            },
+            error: function (xhr) {
+                alert(xhr.responseText);
+            }
+        });
+    }
+
+    //Sending Mail Response to User 
+    function sendMail(data) {
+
+        //console.log(JSON.stringify(data));
+        //var obj = JSON.parse(data);
+
+        var link = "mailto:data.EmailId"
+            + "&subject=" + encodeURIComponent("Feedback Response")
+            + "&body=" + encodeURIComponent(data);
+
+        window.location.href = link;
+    }
+
 </script>
+
+

@@ -1,4 +1,3 @@
-using CustomerFeedBackFormWebAPI.Data;
 using CustomerFeedBackFormWebAPI.Interfaces;
 using CustomerFeedBackFormWebAPI.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -33,8 +32,8 @@ namespace CustomerFeedBackFormWebAPI
 
             services.AddControllers();
 
-            services.AddDbContext<CustomerSatisfactoryFeedBackFormContext>(options => options.UseSqlServer(
-            Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<CustomerSatisfactoryFeedBackFormContext>(options => options.UseSqlServer(
+            //Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddSwaggerGen(c =>
             {

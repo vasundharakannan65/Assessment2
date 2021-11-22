@@ -1,5 +1,5 @@
 ﻿using CustomerFeedBackFormWebAPI.Interfaces;
-using CustomerFeedBackFormWebAPI.Models;
+using CustomerFeedBackFormWebAPI.ViewModels;
 using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
@@ -44,13 +44,20 @@ namespace CustomerFeedBackFormWebAPI.Repositories
             parameters.Add("Information", customerForm.Information);
             parameters.Add("ReasonForUnsatisfactory", customerForm.ReasonForUnsatisfactory);
             parameters.Add("FileUpload", customerForm.FileUpload);
-            
 
 
             SqlMapper.Execute(dbConnection, sp, commandType: CommandType.StoredProcedure, param: parameters);
 
+        } 
+
+        //GetFeedbackInfo 
+        public async Task<FeedbackViewModel> GetFeedbackInfo()
+        {
+            using IDbConnection dbConnection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection"));
+
+            string sp = "[dbo].[SP_GetFeedbackInfo]";
+
+            return await Task.FromResult(dbConnection.Query<FeedbackViewModel>(sp, commandType: CommandType.StoredProcedure).FirstOrDefault());
         }
-
-
     }
 }
